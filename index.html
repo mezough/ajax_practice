@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+
+<body>
+    <button onclick="response()">get response</button>
+    <dive id="list"></dive>
+
+    <script>
+        function response() {
+            var myRequest = new XMLHttpRequest();
+            myRequest.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+
+                    // console.log(this.responseText);
+                    // console.log(JSON.parse(this.responseText));
+
+                    // convert json text to js object:
+
+                    var myJsObject = JSON.parse(this.responseText);
+                    myText = "";
+                    for (var i = 0; i < myJsObject.length; i++) {
+                        // console.log(myJsObject[i].name);
+                        myText += myJsObject[i] + "<br>";
+                    }
+                    document.getElementById("list").innerHTML = myText;
+                }
+
+            };
+            myRequest.open("get", "object.json", true);
+            // myRequest.open("get", "main.txt", true);
+            myRequest.send();
+        }
+
+    </script>
+</body>
+
+</html>
