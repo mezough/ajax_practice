@@ -1,6 +1,8 @@
 link: https://www.javacodegeeks.com/starting-with-ajax-cheatsheet.html
- 1\. Introduction
-----------------
+
+## With LIVE SERVER
+
+## 1\. Introduction
 
 AJAX (Asynchronous JavaScript and XML) is a technique for building dynamic web applications that can update content on a web page without requiring a full page reload. It uses a combination of JavaScript and XML (or other data formats like JSON) to send and receive data from a web server asynchronously, without disrupting the user's experience on the page.
 
@@ -8,8 +10,7 @@ AJAX has become a popular technique for building modern web applications that re
 
 This cheatsheet provides an overview of some of the key concepts and techniques involved in building AJAX applications, including how to make AJAX requests, how to handle responses from the server, and how to modify the DOM dynamically. It also includes information on some of the tools and frameworks commonly used in AJAX development, to help developers work more efficiently and effectively.
 
-2\. XHR
--------
+## 2\. XHR
 
 XHR stands for "XMLHttpRequest". It is a built-in web API in JavaScript that allows you to make HTTP requests to a server without having to reload the page. With XHR, you can retrieve data from a server, send data to a server, and perform other types of HTTP requests such as POST and PUT.
 
@@ -45,11 +46,11 @@ To create an `XMLHttpRequest` object for an AJAX request, you can use the `XM
 
 1
 
- |
+|
 
 `var` `xhr =` `new` `XMLHttpRequest();`
 
- |
+|
 
 ### 2.4 Open a connection
 
@@ -59,11 +60,11 @@ To open a connection for an AJAX request using the `XMLHttpRequest` object, yo
 
 1
 
- |
+|
 
-`xhr.open(``"GET"``,` `"your_api_endpoint"``,` `true``);`
+` xhr.open(``"GET"``, ` ` "your_api_endpoint"``, ` ` true``); `
 
- |
+|
 
 The third parameter specifies whether the request should be asynchronous or not.
 
@@ -77,13 +78,13 @@ To set headers for an AJAX request using the `XMLHttpRequest` object, you can 
 
 2
 
- |
+|
 
-`xhr.setRequestHeader(``"Content-type"``,` `"application/json"``);`
+` xhr.setRequestHeader(``"Content-type"``, ` ` "application/json"``); `
 
-`xhr.setRequestHeader(``"Authorization"``,` `"Bearer your_access_token"``);`
+` xhr.setRequestHeader(``"Authorization"``, ` ` "Bearer your_access_token"``); `
 
- |
+|
 
 ### 2.6 Send the request
 
@@ -93,11 +94,11 @@ To send an AJAX request using the `XMLHttpRequest` object, you can use the `s
 
 1
 
- |
+|
 
 `xhr.send();`
 
- |
+|
 
 ### 2.7 Listen for the response
 
@@ -121,9 +122,9 @@ To listen for the response of an AJAX request using the `XMLHttpRequest` objec
 
 8
 
- |
+|
 
-`xhr.onload =` `function``() {`
+`xhr.onload =` ` function``() { `
 
 `// Handle successful response`
 
@@ -131,13 +132,13 @@ To listen for the response of an AJAX request using the `XMLHttpRequest` objec
 
 `};`
 
-`xhr.onerror =` `function``() {`
+`xhr.onerror =` ` function``() { `
 
 `// Handle error`
 
 `};`
 
- |
+|
 
 ### 2.8 Send data with the request
 
@@ -151,15 +152,15 @@ To send data with an AJAX request using the `XMLHttpRequest` object, you can s
 
 3
 
- |
+|
 
-`xhr.open(``"POST"``,` `"your_api_endpoint"``,` `true``);`
+` xhr.open(``"POST"``, ` ` "your_api_endpoint"``, ` ` true``); `
 
-`xhr.setRequestHeader(``"Content-type"``,` `"application/json"``);`
+` xhr.setRequestHeader(``"Content-type"``, ` ` "application/json"``); `
 
 `xhr.send(JSON.stringify({ key1: value1, key2: value2 }));`
 
- |
+|
 
 ### 2.9 Use with FormData
 
@@ -181,21 +182,21 @@ FormData is a JavaScript object that provides an easy way to construct a set of 
 
 7
 
- |
+|
 
 `var` `formData =` `new` `FormData();`
 
-`formData.append(``"file"``, fileInputElement.files[0]);`
+` formData.append(``"file"``, fileInputElement.files[0]); `
 
-`formData.append(``"key1"``, value1);`
+` formData.append(``"key1"``, value1); `
 
-`formData.append(``"key2"``, value2);`
+` formData.append(``"key2"``, value2); `
 
-`xhr.open(``"POST"``,` `"your_api_endpoint"``,` `true``);`
+` xhr.open(``"POST"``, ` ` "your_api_endpoint"``, ` ` true``); `
 
 `xhr.send(formData);`
 
- |
+|
 
 ### 2.10 Handling an HTML Response
 
@@ -221,15 +222,15 @@ To handle an HTML response from an XHR request, you can use the XMLHttpRequest o
 
 9
 
- |
+|
 
 `const xhr =` `new` `XMLHttpRequest();`
 
-`xhr.onreadystatechange =` `function``() {`
+`xhr.onreadystatechange =` ` function``() { `
 
-`if` `(``this``.readyState == 4 &&` `this``.status == 200) {`
+`if` ` (``this``.readyState == 4 && ` ` this``.status == 200) { `
 
-`const htmlResponse =` `this``.responseText;`
+`const htmlResponse =` ` this``.responseText; `
 
 `// Do something with the HTML content`
 
@@ -237,11 +238,11 @@ To handle an HTML response from an XHR request, you can use the XMLHttpRequest o
 
 `};`
 
-`xhr.open(``'GET'``,` `'[https://example.com](https://example.com/)'``,` `true``);`
+` xhr.open(``'GET'``, ` ` '[https://example.com](https://example.com/)'``, ` ` true``); `
 
 `xhr.send();`
 
- |
+|
 
 ### 2.11 Handling a JSON Response
 
@@ -267,15 +268,15 @@ To handle a JSON response from an XHR request, you can use the XMLHttpRequest ob
 
 9
 
- |
+|
 
 `const xhr =` `new` `XMLHttpRequest();`
 
-`xhr.onreadystatechange =` `function``() {`
+`xhr.onreadystatechange =` ` function``() { `
 
-`if` `(``this``.readyState == 4 &&` `this``.status == 200) {`
+`if` ` (``this``.readyState == 4 && ` ` this``.status == 200) { `
 
-`const jsonResponse = JSON.parse(``this``.responseText);`
+` const jsonResponse = JSON.parse(``this``.responseText); `
 
 `// Do something with the JavaScript object`
 
@@ -283,11 +284,11 @@ To handle a JSON response from an XHR request, you can use the XMLHttpRequest ob
 
 `};`
 
-`xhr.open(``'GET'``,` `'<https://example.com/data.json>'``,` `true``);`
+` xhr.open(``'GET'``, ` ` '<https://example.com/data.json>'``, ` ` true``); `
 
 `xhr.send();`
 
- |
+|
 
 ### 2.12 Handling an XML Response
 
@@ -317,19 +318,19 @@ To handle an XML response from an XHR request, you can use the XMLHttpRequest ob
 
 11
 
- |
+|
 
 `const xhr =` `new` `XMLHttpRequest();`
 
-`xhr.onreadystatechange =` `function``() {`
+`xhr.onreadystatechange =` ` function``() { `
 
-`if` `(``this``.readyState == 4 &&` `this``.status == 200) {`
+`if` ` (``this``.readyState == 4 && ` ` this``.status == 200) { `
 
-`const xmlResponse =` `this``.responseXML;`
+`const xmlResponse =` ` this``.responseXML; `
 
 `// Do something with the XML content`
 
-`const elements = xmlResponse.getElementsByTagName(``'elementName'``);`
+` const elements = xmlResponse.getElementsByTagName(``'elementName'``); `
 
 `console.log(elements[0].textContent);`
 
@@ -337,26 +338,25 @@ To handle an XML response from an XHR request, you can use the XMLHttpRequest ob
 
 `};`
 
-`xhr.open(``'GET'``,` `'<https://example.com/data.xml>'``,` `true``);`
+` xhr.open(``'GET'``, ` ` '<https://example.com/data.xml>'``, ` ` true``); `
 
 `xhr.send();`
 
- |
+|
 
 Note that handling an XML response can be more complex than handling a JSON or HTML response, as XML has a more complex structure and may require more specialized parsing techniques. Additionally, modern web APIs often prefer to use JSON over XML due to its simplicity and ease of use.
 
 ### 2.13 Tips for Using XHR
 
--   Understand the XHR lifecycle: The XHR object goes through a series of states as it sends a request and receives a response from the server. Understanding the lifecycle of an XHR request can help you write more effective code.
--   Set the `onreadystatechange` event handler: The `onreadystatechange` event is fired every time the readyState property of the XHR object changes. You should set an event handler for this event so that you can handle the response from the server appropriately.
--   Use asynchronous requests: By default, XHR requests are asynchronous, meaning that they don't block the execution of other code while waiting for a response from the server. This is generally preferable, as it allows your application to continue to respond to user input while the request is being processed.
--   Use error handling: XHR requests can fail for a variety of reasons, such as network errors or server errors. You should always include an error handling code in your XHR requests to ensure that your application can handle these errors gracefully.
--   Use the correct HTTP verb: XHR requests can use different HTTP verbs (such as GET, POST, PUT, DELETE, etc.) depending on the type of request you are making. Make sure to use the correct verb for the action you are performing.
--   Send data in the correct format: When sending data in an XHR request, make sure to send it in the correct format (such as JSON, XML, or plain text) and include the correct Content-Type header.
--   Use a library: XHR can be a bit verbose and low-level. Consider using a library such as jQuery or Axios to make XHR requests easier to write and more readable.
+- Understand the XHR lifecycle: The XHR object goes through a series of states as it sends a request and receives a response from the server. Understanding the lifecycle of an XHR request can help you write more effective code.
+- Set the `onreadystatechange` event handler: The `onreadystatechange` event is fired every time the readyState property of the XHR object changes. You should set an event handler for this event so that you can handle the response from the server appropriately.
+- Use asynchronous requests: By default, XHR requests are asynchronous, meaning that they don't block the execution of other code while waiting for a response from the server. This is generally preferable, as it allows your application to continue to respond to user input while the request is being processed.
+- Use error handling: XHR requests can fail for a variety of reasons, such as network errors or server errors. You should always include an error handling code in your XHR requests to ensure that your application can handle these errors gracefully.
+- Use the correct HTTP verb: XHR requests can use different HTTP verbs (such as GET, POST, PUT, DELETE, etc.) depending on the type of request you are making. Make sure to use the correct verb for the action you are performing.
+- Send data in the correct format: When sending data in an XHR request, make sure to send it in the correct format (such as JSON, XML, or plain text) and include the correct Content-Type header.
+- Use a library: XHR can be a bit verbose and low-level. Consider using a library such as jQuery or Axios to make XHR requests easier to write and more readable.
 
-3\. HTTP
---------
+## 3\. HTTP
 
 HTTP stands for "Hypertext Transfer Protocol". It is a protocol used for communication between web servers and web clients (such as web browsers). HTTP is the foundation of data communication for the World Wide Web.
 
@@ -392,8 +392,7 @@ MIME (Multipurpose Internet Mail Extensions) types are a way of identifying file
 | application/xml | Extensible Markup Language (XML) | .xml files |
 | application/zip | ZIP archive | .zip files |
 
-4\. AJAX
---------
+## 4\. AJAX
 
 AJAX (Asynchronous JavaScript and XML) is a web development technique that allows for asynchronous communication between a web browser and a web server, without requiring a page refresh or full reload. AJAX can be used to fetch data from a server and update a web page dynamically, without requiring the user to navigate away from the page.
 
@@ -429,11 +428,11 @@ To find DOM elements in an HTML document using JavaScript, you can use the `doc
 
 1
 
- |
+|
 
-`const element = document.getElementById(``'myElement'``);`
+` const element = document.getElementById(``'myElement'``); `
 
- |
+|
 
 #### 4.2.2 Find elements by their tag name
 
@@ -441,11 +440,11 @@ To find DOM elements in an HTML document using JavaScript, you can use the `doc
 
 1
 
- |
+|
 
-`const elements = document.getElementsByTagName(``'div'``);`
+` const elements = document.getElementsByTagName(``'div'``); `
 
- |
+|
 
 #### 4.2.3 Find elements by their class name
 
@@ -453,11 +452,11 @@ To find DOM elements in an HTML document using JavaScript, you can use the `doc
 
 1
 
- |
+|
 
-`const elements = document.getElementsByClassName(``'myClass'``);`
+` const elements = document.getElementsByClassName(``'myClass'``); `
 
- |
+|
 
 #### 4.2.4 Find the first element that matches a CSS selector
 
@@ -465,11 +464,11 @@ To find DOM elements in an HTML document using JavaScript, you can use the `doc
 
 1
 
- |
+|
 
-`const element = document.querySelector(``'#myElement.myClass'``);`
+` const element = document.querySelector(``'#myElement.myClass'``); `
 
- |
+|
 
 #### 4.2.5 Find all elements that match a CSS selector
 
@@ -477,11 +476,11 @@ To find DOM elements in an HTML document using JavaScript, you can use the `doc
 
 1
 
- |
+|
 
-`const elements = document.querySelectorAll(``'.myClass'``);`
+` const elements = document.querySelectorAll(``'.myClass'``); `
 
- |
+|
 
 ### 4.3 Modifying the DOM
 
@@ -506,13 +505,13 @@ To modify the DOM in an HTML document using JavaScript, you can use the `docume
 
 2
 
- |
+|
 
-`const element = document.getElementById(``'myElement'``);`
+` const element = document.getElementById(``'myElement'``); `
 
-`element.textContent =` `'New text content'``;`
+`element.textContent =` ` 'New text content'``; `
 
- |
+|
 
 #### 4.3.2 Modify the HTML content of an element
 
@@ -522,13 +521,13 @@ To modify the DOM in an HTML document using JavaScript, you can use the `docume
 
 2
 
- |
+|
 
-`const element = document.getElementById(``'myElement'``);`
+` const element = document.getElementById(``'myElement'``); `
 
-`element.innerHTML =` `'<p>New HTML content</p>'``;`
+`element.innerHTML =` ` '<p>New HTML content</p>'``; `
 
- |
+|
 
 #### 4.3.3 Add a new element to the document
 
@@ -540,15 +539,15 @@ To modify the DOM in an HTML document using JavaScript, you can use the `docume
 
 3
 
- |
+|
 
-`const newElement = document.createElement(``'div'``);`
+` const newElement = document.createElement(``'div'``); `
 
-`newElement.textContent =` `'New element'``;`
+`newElement.textContent =` ` 'New element'``; `
 
 `document.body.appendChild(newElement);`
 
- |
+|
 
 #### 4.3.4 Remove an element from the document
 
@@ -558,13 +557,13 @@ To modify the DOM in an HTML document using JavaScript, you can use the `docume
 
 2
 
- |
+|
 
-`const element = document.getElementById(``'myElement'``);`
+` const element = document.getElementById(``'myElement'``); `
 
 `element.parentNode.removeChild(element);`
 
- |
+|
 
 #### 4.3.5 Modify an element's attributes
 
@@ -574,13 +573,13 @@ To modify the DOM in an HTML document using JavaScript, you can use the `docume
 
 2
 
- |
+|
 
-`const element = document.getElementById(``'myElement'``);`
+` const element = document.getElementById(``'myElement'``); `
 
-`element.setAttribute(``'class'``,` `'newClass'``);`
+` element.setAttribute(``'class'``, ` ` 'newClass'``); `
 
- |
+|
 
 ### 4.4 Ajax Toolkits
 
