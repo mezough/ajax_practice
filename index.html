@@ -9,6 +9,7 @@
 
 <body>
     <button onclick="response()">get response</button>
+    <br>
     <dive id="list"></dive>
 
     <script>
@@ -20,13 +21,16 @@
                     // console.log(this.responseText);
                     // console.log(JSON.parse(this.responseText));
 
-                    // convert json text to js object:
-
+                    // convert json text to a javaScript object:
                     var myJsObject = JSON.parse(this.responseText);
                     myText = "";
                     for (var i = 0; i < myJsObject.length; i++) {
-                        // console.log(myJsObject[i].name);
-                        myText += myJsObject[i] + "<br>";
+
+                        // to print key and value
+                        myText += "Name: " + myJsObject[i].name + ", Age: " + myJsObject[i].age + "<br>";
+
+                        // if you want to print javaScript object you should use 'JSON.stringify'
+                        // myText += JSON.stringify(myJsObject[i]) + "<br>";
                     }
                     document.getElementById("list").innerHTML = myText;
                 }
