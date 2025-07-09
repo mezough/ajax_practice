@@ -68,10 +68,10 @@ var xhr = new XMLHttpRequest();
 
 ### 2.4 Open a connection
 
-To open a connection for an AJAX request using the `XMLHttpRequest` object, you can use the `open()` method.
+To open a connection for an AJAX request using the `XMLHttpRequest` object, you can use the `open()` method.
 
-````javascript
- xhr.open(``"GET"``, ` ` "your_api_endpoint"``, ` ` true``);
+```javascript
+xhr.open("GET", "your_api_endpoint", true);
 
 
 The third parameter specifies whether the request should be asynchronous or not.
