@@ -1,8 +1,48 @@
 link: https://www.javacodegeeks.com/starting-with-ajax-cheatsheet.html
 
-## With LIVE SERVER
+## with XHR method “XMLHttpRequest”: using LiveServer
 
-## with XHR method “XMLHttpRequest”:
+_see the code below:_
+
+```javascript
+<body>
+    <button onclick="response()">get response</button>
+    <br>
+    <dive id="list"></dive>
+
+    <script>
+        function response() {
+            var myRequest = new XMLHttpRequest();
+            myRequest.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+
+                    // console.log(this.responseText);
+                    // console.log(JSON.parse(this.responseText));
+
+                    // convert json text to a javaScript object:
+                    var myJsObject = JSON.parse(this.responseText);
+                    myText = "";
+                    for (var i = 0; i < myJsObject.length; i++) {
+
+                        // to print key and value
+                        myText += "Name: " + myJsObject[i].name + ", Age: " + myJsObject[i].age + "<br>";
+
+                        // if you want to print javaScript object you should use 'JSON.stringify'
+                        // myText += JSON.stringify(myJsObject[i]) + "<br>";
+                    }
+                    document.getElementById("list").innerHTML = myText;
+                }
+
+            };
+            myRequest.open("get", "object.json", true);
+            // myRequest.open("get", "main.txt", true);
+            myRequest.send();
+        }
+
+    </script>
+</body>
+
+```
 
 ## 2.1 Methods
 
