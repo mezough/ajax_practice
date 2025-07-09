@@ -2,6 +2,24 @@ link: https://www.javacodegeeks.com/starting-with-ajax-cheatsheet.html
 
 ## With LIVE SERVER
 
+## with XHR method “XMLHttpRequest”:
+
+## 2.1 Methods
+
+| Method                    | Description                                                                                                                                                                                         |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `open()`                  | Initializes a request. Takes in the HTTP method (e.g. GET, POST), URL to send the request to, and whether the request should be asynchronous (true or false).                                       |
+| `setRequestHeader()`      | Sets the value of an HTTP request header. This method should be called after `open()` and before `send()`.                                                                                          |
+| `send()`                  | Sends the request to the server. This method should be called after `open()` and optionally after `setRequestHeader()`. If sending data, it should be passed as an argument to the `send()` method. |
+| `abort()`                 | Aborts the request if it has already been sent.                                                                                                                                                     |
+| `getResponseHeader()`     | Returns the value of the specified response header.                                                                                                                                                 |
+| `getAllResponseHeaders()` | Returns all the response headers as a string.                                                                                                                                                       |
+| `onreadystatechange`      | An event handler that is called whenever the `readyState` property changes.                                                                                                                         |
+| `readyState`              | Holds the status of the XMLHttpRequest object. Its value is an integer representing the state of the request.                                                                                       |
+| `status`                  | Holds the HTTP status code of the response.                                                                                                                                                         |
+| `statusText`              | Holds the HTTP status message of the response.                                                                                                                                                      |
+| `responseType`            | Determines the type of response. Possible values include `"text"`, `"json"`, `"blob"`, `"document"`, and `"arraybuffer"`.                                                                           |
+
 ## 1\. Introduction
 
 AJAX (Asynchronous JavaScript and XML) is a technique for building dynamic web applications that can update content on a web page without requiring a full page reload. It uses a combination of JavaScript and XML (or other data formats like JSON) to send and receive data from a web server asynchronously, without disrupting the user's experience on the page.
