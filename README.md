@@ -72,7 +72,7 @@ To open a connection for an AJAX request using the `XMLHttpRequest` object, you 
 
 ```javascript
 xhr.open("GET", "your_api_endpoint", true);
-
+```
 
 The third parameter specifies whether the request should be asynchronous or not.
 
