@@ -34,55 +34,45 @@ XHR stands for "XMLHttpRequest". It is a built-in web API in JavaScript that all
 
 ### 2.1 Methods
 
-| Method | Description |
-| `open()` | Initializes a request. Takes in the HTTP method (e.g. GET, POST), URL to send the request to, and whether the request should be asynchronous (true or false). |
-| `setRequestHeader()` | Sets the value of an HTTP request header. This method should be called after `open()` and before `send()`. |
-| `send()` | Sends the request to the server. This method should be called after `open()` and optionally after `setRequestHeader()`. If sending data, it should be passed as an argument to the `send()` method. |
-| `abort()` | Aborts the request if it has already been sent. |
-| `getResponseHeader()` | Returns the value of the specified response header. |
-| `getAllResponseHeaders()` | Returns all the response headers as a string. |
-| `onreadystatechange` | An event handler that is called whenever the `readyState` property changes. |
-| `readyState` | Holds the status of the XMLHttpRequest object. Its value is an integer representing the state of the request. |
-| `status` | Holds the HTTP status code of the response. |
-| `statusText` | Holds the HTTP status message of the response. |
-| `responseType` | Determines the type of response. Possible values include `"text"`, `"json"`, `"blob"`, `"document"`, and `"arraybuffer"`. |
+| Method                    | Description                                                                                                                                                                                         |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `open()`                  | Initializes a request. Takes in the HTTP method (e.g. GET, POST), URL to send the request to, and whether the request should be asynchronous (true or false).                                       |
+| `setRequestHeader()`      | Sets the value of an HTTP request header. This method should be called after `open()` and before `send()`.                                                                                          |
+| `send()`                  | Sends the request to the server. This method should be called after `open()` and optionally after `setRequestHeader()`. If sending data, it should be passed as an argument to the `send()` method. |
+| `abort()`                 | Aborts the request if it has already been sent.                                                                                                                                                     |
+| `getResponseHeader()`     | Returns the value of the specified response header.                                                                                                                                                 |
+| `getAllResponseHeaders()` | Returns all the response headers as a string.                                                                                                                                                       |
+| `onreadystatechange`      | An event handler that is called whenever the `readyState` property changes.                                                                                                                         |
+| `readyState`              | Holds the status of the XMLHttpRequest object. Its value is an integer representing the state of the request.                                                                                       |
+| `status`                  | Holds the HTTP status code of the response.                                                                                                                                                         |
+| `statusText`              | Holds the HTTP status message of the response.                                                                                                                                                      |
+| `responseType`            | Determines the type of response. Possible values include `"text"`, `"json"`, `"blob"`, `"document"`, and `"arraybuffer"`.                                                                           |
 
 ### 2.2 XHR ReadyState Values
 
-| readyState Value | Description |
-| 0 | The request has not been initialized. |
-| 1 | The request has been set up but not sent. |
-| 2 | The request has been sent but the server has not yet responded. |
-| 3 | The server is processing the request and has started sending a response. |
-| 4 | The server has finished sending the response and the request has been completed. |
+| readyState Value | Description                                                                      |
+| ---------------- | -------------------------------------------------------------------------------- |
+| 0                | The request has not been initialized.                                            |
+| 1                | The request has been set up but not sent.                                        |
+| 2                | The request has been sent but the server has not yet responded.                  |
+| 3                | The server is processing the request and has started sending a response.         |
+| 4                | The server has finished sending the response and the request has been completed. |
 
 ### 2.3 Create an XHR object
 
-To create an `XMLHttpRequest` object for an AJAX request, you can use the `XMLHttpRequest` constructor function.
+To create an `XMLHttpRequest` object for an AJAX request, you can use the `XMLHttpRequest` constructor function.
 
-|
+`````javascript
+var xhr = new XMLHttpRequest();
 
-1
-
-|
-
-`var` `xhr =` `new` `XMLHttpRequest();`
-
-|
 
 ### 2.4 Open a connection
 
 To open a connection for an AJAX request using the `XMLHttpRequest` object, you can use the `open()` method.
 
-|
+````javascript
+ xhr.open(``"GET"``, ` ` "your_api_endpoint"``, ` ` true``);
 
-1
-
-|
-
-` xhr.open(``"GET"``, ` ` "your_api_endpoint"``, ` ` true``); `
-
-|
 
 The third parameter specifies whether the request should be asynchronous or not.
 
@@ -90,131 +80,69 @@ The third parameter specifies whether the request should be asynchronous or not.
 
 To set headers for an AJAX request using the `XMLHttpRequest` object, you can use the `setRequestHeader()` method.
 
-|
+````javascript
+xhr.setRequestHeader(``"Content-type"``, ` ` "application/json"``);
 
-1
-
-2
-
-|
-
-` xhr.setRequestHeader(``"Content-type"``, ` ` "application/json"``); `
-
-` xhr.setRequestHeader(``"Authorization"``, ` ` "Bearer your_access_token"``); `
-
-|
+````javascript
+xhr.setRequestHeader(``"Authorization"``, ` ` "Bearer your_access_token"``);
 
 ### 2.6 Send the request
 
 To send an AJAX request using the `XMLHttpRequest` object, you can use the `send()` method.
 
-|
+````javascript
+xhr.send();
 
-1
 
-|
-
-`xhr.send();`
-
-|
 
 ### 2.7 Listen for the response
 
 To listen for the response of an AJAX request using the `XMLHttpRequest` object, you can set the `onreadystatechange` event handler and check the `readyState` and `status` properties of the `XMLHttpRequest` object.
 
-|
+````javascript
+xhr.onload =` ` function``() {
 
-1
+// Handle successful response
 
-2
+var` `data = JSON.parse(xhr.responseText);
 
-3
+};
 
-4
+xhr.onerror =` ` function``() {
 
-5
+// Handle error`
 
-6
+};
 
-7
-
-8
-
-|
-
-`xhr.onload =` ` function``() { `
-
-`// Handle successful response`
-
-`var` `data = JSON.parse(xhr.responseText);`
-
-`};`
-
-`xhr.onerror =` ` function``() { `
-
-`// Handle error`
-
-`};`
-
-|
 
 ### 2.8 Send data with the request
 
 To send data with an AJAX request using the `XMLHttpRequest` object, you can set the request body using the `send()` method.
 
-|
+````javascript
+ xhr.open(``"POST"``, ` ` "your_api_endpoint"``, ` ` true``);
 
-1
+ xhr.setRequestHeader(``"Content-type"``, ` ` "application/json"``);
 
-2
-
-3
-
-|
-
-` xhr.open(``"POST"``, ` ` "your_api_endpoint"``, ` ` true``); `
-
-` xhr.setRequestHeader(``"Content-type"``, ` ` "application/json"``); `
-
-`xhr.send(JSON.stringify({ key1: value1, key2: value2 }));`
-
-|
+xhr.send(JSON.stringify({ key1: value1, key2: value2 }));
 
 ### 2.9 Use with FormData
 
 FormData is a JavaScript object that provides an easy way to construct a set of key-value pairs to send with an AJAX request. It can be used to construct a form data object from an HTML form or to create a new form data object manually.
 
-|
+````javascript
+var` `formData =` `new` `FormData();
 
-1
+ formData.append(``"file"``, fileInputElement.files[0]);
 
-2
+ formData.append(``"key1"``, value1);
 
-3
+ formData.append(``"key2"``, value2);
+ xhr.open(``"POST"``, ` ` "your_api_endpoint"``, ` ` true``);
 
-4
+xhr.send(formData);
 
-5
 
-6
-
-7
-
-|
-
-`var` `formData =` `new` `FormData();`
-
-` formData.append(``"file"``, fileInputElement.files[0]); `
-
-` formData.append(``"key1"``, value1); `
-
-` formData.append(``"key2"``, value2); `
-
-` xhr.open(``"POST"``, ` ` "your_api_endpoint"``, ` ` true``); `
-
-`xhr.send(formData);`
-
-|
 
 ### 2.10 Handling an HTML Response
 
@@ -629,3 +557,4 @@ These tools can help developers work more efficiently and effectively when build
 | Testing Frameworks | Tools like [Jest](https://jestjs.io/) or [Mocha](https://mochajs.org/) for writing and running automated tests on code. |
 | API Clients | Tools like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) for testing and interacting with APIs. |
 | Code Quality Tools | Tools like [ESLint](https://eslint.org/) or [Prettier](https://prettier.io/) for ensuring consistent code style and preventing common errors. |
+`````
