@@ -62,7 +62,7 @@ XHR stands for "XMLHttpRequest". It is a built-in web API in JavaScript that all
 
 To create an `XMLHttpRequest` object for an AJAX request, you can use the `XMLHttpRequest` constructor function.
 
-`````javascript
+````javascript
 var xhr = new XMLHttpRequest();
 
 
@@ -72,25 +72,26 @@ To open a connection for an AJAX request using the `XMLHttpRequest` object, you 
 
 ```javascript
 xhr.open("GET", "your_api_endpoint", true);
-```
 
 The third parameter specifies whether the request should be asynchronous or not.
+
 
 ### 2.5 Set headers
 
 To set headers for an AJAX request using the `XMLHttpRequest` object, you can use the `setRequestHeader()` method.
 
-````javascript
+```javascript
 xhr.setRequestHeader(``"Content-type"``, ` ` "application/json"``);
 
-````javascript
+```javascript
 xhr.setRequestHeader(``"Authorization"``, ` ` "Bearer your_access_token"``);
+
 
 ### 2.6 Send the request
 
 To send an AJAX request using the `XMLHttpRequest` object, you can use the `send()` method.
 
-````javascript
+```javascript
 xhr.send();
 
 
@@ -99,18 +100,18 @@ xhr.send();
 
 To listen for the response of an AJAX request using the `XMLHttpRequest` object, you can set the `onreadystatechange` event handler and check the `readyState` and `status` properties of the `XMLHttpRequest` object.
 
-````javascript
-xhr.onload =` ` function``() {
+```javascript
+xhr.onload = function () {
 
 // Handle successful response
 
-var` `data = JSON.parse(xhr.responseText);
+var data = JSON.parse(xhr.responseText);
 
 };
 
-xhr.onerror =` ` function``() {
+xhr.onerror = function () {
 
-// Handle error`
+// Handle error
 
 };
 
@@ -119,10 +120,10 @@ xhr.onerror =` ` function``() {
 
 To send data with an AJAX request using the `XMLHttpRequest` object, you can set the request body using the `send()` method.
 
-````javascript
- xhr.open(``"POST"``, ` ` "your_api_endpoint"``, ` ` true``);
+```javascript
+ xhr.open("POST", "your_api_endpoint", true);
 
- xhr.setRequestHeader(``"Content-type"``, ` ` "application/json"``);
+ xhr.setRequestHeader("Content-type","application/json");
 
 xhr.send(JSON.stringify({ key1: value1, key2: value2 }));
 
@@ -130,15 +131,15 @@ xhr.send(JSON.stringify({ key1: value1, key2: value2 }));
 
 FormData is a JavaScript object that provides an easy way to construct a set of key-value pairs to send with an AJAX request. It can be used to construct a form data object from an HTML form or to create a new form data object manually.
 
-````javascript
-var` `formData =` `new` `FormData();
+```javascript
+var formData = new FormData();
 
- formData.append(``"file"``, fileInputElement.files[0]);
+ formData.append("file", fileInputElement.files[0]);
 
- formData.append(``"key1"``, value1);
+ formData.append("key1", value1);
 
- formData.append(``"key2"``, value2);
- xhr.open(``"POST"``, ` ` "your_api_endpoint"``, ` ` true``);
+ formData.append("key2", value2);
+ xhr.open("POST","your_api_endpoint",true);
 
 xhr.send(formData);
 
@@ -557,4 +558,4 @@ These tools can help developers work more efficiently and effectively when build
 | Testing Frameworks | Tools like [Jest](https://jestjs.io/) or [Mocha](https://mochajs.org/) for writing and running automated tests on code. |
 | API Clients | Tools like [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) for testing and interacting with APIs. |
 | Code Quality Tools | Tools like [ESLint](https://eslint.org/) or [Prettier](https://prettier.io/) for ensuring consistent code style and preventing common errors. |
-`````
+````
