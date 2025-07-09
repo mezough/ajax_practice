@@ -62,7 +62,9 @@ XHR stands for "XMLHttpRequest". It is a built-in web API in JavaScript that all
 
 To create an `XMLHttpRequest` object for an AJAX request, you can use the `XMLHttpRequest` constructor function.
 
+```javascript
 var xhr = new XMLHttpRequest();
+```
 
 ### 2.4 Open a connection
 
