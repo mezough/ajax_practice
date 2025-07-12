@@ -1,6 +1,6 @@
 link: https://www.javacodegeeks.com/starting-with-ajax-cheatsheet.html
 
-## with XHR method “XMLHttpRequest”: using LiveServer
+## with xhr method “XMLHttpRequest”: using LiveServer
 
 _see the code below:_
 
